@@ -5,16 +5,25 @@
     <meta charset="utf-8" />
     <title></title>
 
+    <link rel="stylesheet" type="text/css" href="styles\HeaderStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="styles\layout.css"/>
     
+    <style>
+        .button {
+            height: 40px;
+            position: absolute;
+            margin-left: 45%
+        }
+    </style>
     
 </head>
 <body>
-    <div id="header">Rechnungsformular</div>
+    <div class="header">Rechnungsformular</div>
 
     <form id="formular">
         <div id="anrede">
             <label>Anrede:</label>
-            <select name="anrede">
+            <select class="wahl" name="anrede">
                 <option value="herr">Herr</option>
                 <option value="frau">Frau</option>
             </select>
@@ -30,7 +39,7 @@
         <br />
 
         <div id="kinder">
-            <button id="hinzu">Kind hinzufügen</button>
+            <button class="button" id="hinzu">Kind hinzufügen</button>
         </div>
 
         
