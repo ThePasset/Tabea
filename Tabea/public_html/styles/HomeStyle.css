@@ -23,3 +23,11 @@ and open the template in the editor.
     font-weight: bold;
     text-align: center;
 }
+
+.MenuEntry:hover{
+    background-color: #ffe200;
+}
+
+#MainContent{
+    background-color: #ffe200;
+}
