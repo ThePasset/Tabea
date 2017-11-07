@@ -9,20 +9,10 @@ and open the template in the editor.
         <title>Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="styles\HeaderStyle.css"/>
+        <link rel="stylesheet" type="text/css" href="styles\layout.css"/>
         <link rel="stylesheet" type="text/css" href="styles\HomeStyle.css"/>
         <style>
-            #MainHeaderLogStatus{
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
             
-            #LoggedUser{
-                color: white;
-                font-weight: 600;
-                font-family: Arial;
-            }
         </style>
     </head>
     <body>
@@ -34,29 +24,31 @@ and open the template in the editor.
         </div>
         
         <div id="Menu">
-            <div class="MenuEntry">
+            <div class="MenuEntry" onclick="toShow('Kalender')">
                 Kalender
             </div>
-            <div class="MenuEntry">
+            <div class="MenuEntry" onclick="location.href = 'rechnungen.html';">
                 Abrechnungen
             </div>
-            <div class="MenuEntry">
+            <div class="MenuEntry" onclick="toShow('Einstellungen')">
                 Einstellungen
             </div>
-            <div class="MenuEntry">
+            <div class="MenuEntry" onclick="toShow('Etc.')">
                 Etc.
             </div>
             
         </div>
         
         <div id="MainContent">
-            
-            
+            asdf
         </div>
         
         
         <script>
-            
+            function toShow(s){
+                
+                document.getElementById("MainContent").innerHTML = s;
+            }
             
         </script>
     </body>

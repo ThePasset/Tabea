@@ -31,3 +31,15 @@ and open the template in the editor.
 #MainContent{
     background-color: #ffe200;
 }
+
+#MainHeaderLogStatus{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    }
+            
+#LoggedUser{
+    color: white;
+    font-weight: 600;
+    font-family: Arial;
+    }
