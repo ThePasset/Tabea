@@ -12,16 +12,39 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="styles\HeaderStyle.css"/>
         <link rel="stylesheet" type="text/css" href="styles\HomeStyle.css"/>
         <style>
-            #logout{
+            #MainHeaderLogStatus{
                 position: absolute;
                 top: 20px;
                 right: 20px;
+            }
+            
+            #LoggedUser{
+                color: white;
+                font-weight: 600;
+                font-family: Arial;
+            }
+            
+            #Menu{
+                background-color: #ffcc00;
+                width: 10%;
+                height: 
             }
             
         </style>
     </head>
     <body>
         <div class="header">Home</div>
-        <input id="logout" class="headerButton" type="button" onclick="location.href = 'index.html';" value="Logout">
+        
+        <div id="MainHeaderLogStatus">
+            <div id="LoggedUser">Testbenutzer</div>
+            <input id="logout" class="headerButton" type="button" onclick="location.href = 'index.html';" value="Logout">
+        </div>
+        
+        <div id="Menu">
+            a
+            
+        </div>
+        
+        
     </body>
 </html>
