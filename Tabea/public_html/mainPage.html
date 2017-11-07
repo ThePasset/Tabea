@@ -9,8 +9,19 @@ and open the template in the editor.
         <title>Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles\HeaderStyle.css"/>
+        <link rel="stylesheet" type="text/css" href="styles\HomeStyle.css"/>
+        <style>
+            #logout{
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+        </style>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="header">Home</div>
+        <input id="logout" class="headerButton" type="button" onclick="location.href = 'index.html';" value="Logout">
     </body>
 </html>
