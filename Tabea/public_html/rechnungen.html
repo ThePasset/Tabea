@@ -14,11 +14,12 @@
                 margin-left: 60px;
             }
 
-            form {
+            #formular {
                 position: absolute;
-                margin-left: 40%
+                margin-left: 42%;
+                margin-top: 6%;
             }
-
+            
             div.panel {
                 padding: 0 18px;
                 display: none;
@@ -31,6 +32,39 @@
                 margin-left: 10px;
             }
             
+            #t1 {
+                margin-left: 8px;
+                width: 150px;
+            }
+            
+            #empfaenger {
+                margin-left: 5px;
+            }
+            
+            #kinderliste {
+                width: 300px;
+            }
+            
+            #text {
+                margin-left: -130px;
+            }
+            
+            #o {
+                margin-left: 23px;
+            }
+            
+            input {
+                width: 150px;
+            }
+            dfn {
+                font-style: normal;
+            }
+            
+            #frage {
+                height: 8px;
+                width: 8px;
+            }
+            
         </style>
 
     </head>
@@ -40,38 +74,62 @@
         <br/>
 
         <form id="formular">
-            <div id="anrede">
-                <label>Anrede:</label>
-                <select class="wahl" name="anrede">
-                    <option value="herr">Herr</option>
-                    <option value="frau">Frau</option>
-                </select>
+            <div id="eingabe">
+                <div id="anrede">
+                    <label class="inf">Anrede:</label>
+                    <select id="an" class="wahl" name="anrede">
+                        <option value="herr">Herr</option>
+                        <option value="frau">Frau</option>
+                    </select>
+                </div>
+
+                <br />
+
+                <div id="text">
+                    <label for="t1">Leistungsbeschreibung<dfn title="z.B.: Ich erlaube mir, für die Tätigkeit als Tagesmutter/Mobil Mami von mir erbrachte Leistungen, in Rechnung zu stellen">
+                        <img id="frage" src="bilder/fragezeichen.png" />
+                    </dfn>:</label>
+                    
+                    <input type="text" id="t1"/>
+                </div>
+
+                <br />
+
+                <div>
+                    <label class="inf">Kunde:</label>
+                    <select class="wahl" id="empfaenger">
+                        <option>Max Mustermann</option>
+                        <option>Michaela Musterfrau</option>
+                    </select>
+                    <button class="button" id="bearbeiten">Bearbeiten</button>
+                </div>
+
+                <br />
+
+                <div id="kinder">
+                    <label id="kind">Kinder:</label>
+                    <div id="kinderliste"></div>
+                    <br />
+                    <button class="button" id="hinzu">Kind hinzufügen</button>
+                </div>
+
+                <br />
+                <br />
+
+                <div id="ortDatum">
+                    <div id="o">
+                        <label>Ort:</label>
+                        <input type="text" id="ort" />
+                    </div>
+                    
+                    <br/>
+
+                    <div id="d">
+                        <label class="inf">Datum:</label>
+                        <input type="text" id="datum" />
+                    </div>
+                </div>
             </div>
-
-            <br />
-
-            <div id="text">
-                <dfn title="z.B.: Ich erlaube mir, für die Tätigkeit als Tagesmutter/Mobil Mami von mir erbrachte Leistungen, in Rechnung zu stellen">Text:</dfn>
-                <input type="text" id="t1"/>
-            </div>
-
-            <br />
-
-            <div>
-                <label>Kunde:</label>
-                <select class="wahl" name="empfaenger">
-                    <option>Max Mustermann</option>
-                    <option>Michaela Musterfrau</option>
-                </select>
-                <button class="button" id="bearbeiten">Bearbeiten</button>
-            </div>
-
-            <br />
-
-            <div id="kinder">
-                <button class="button" id="hinzu">Kind hinzufügen</button>
-            </div>
-
         </form>
 
         <script>
@@ -84,6 +142,11 @@
                     panel.style.display = "block";
                 }
             }
+            
+            $('#hinzu').on('click', function() {
+                
+            });
+            
         </script>
 
     </body>
