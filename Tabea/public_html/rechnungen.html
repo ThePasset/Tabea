@@ -14,12 +14,12 @@
                 margin-left: 60px;
             }
 
-            #formular {
+            #eingabe {
                 position: absolute;
                 margin-left: 42%;
                 margin-top: 6%;
             }
-            
+
             div.panel {
                 padding: 0 18px;
                 display: none;
@@ -31,40 +31,48 @@
                 width: 80px;
                 margin-left: 10px;
             }
-            
+
             #t1 {
                 margin-left: 8px;
                 width: 150px;
             }
-            
+
             #empfaenger {
                 margin-left: 5px;
             }
-            
+
             #kinderliste {
                 width: 300px;
             }
-            
+
             #text {
-                margin-left: -130px;
+                margin-left: -138px;
             }
-            
+
             #o {
                 margin-left: 23px;
             }
-            
+
             input {
                 width: 150px;
             }
             dfn {
                 font-style: normal;
             }
-            
+
             #frage {
                 height: 8px;
                 width: 8px;
             }
-            
+
+            #z {
+                margin-left: -74px;
+            }
+
+            #sum {
+
+            }
+
         </style>
 
     </head>
@@ -73,64 +81,100 @@
 
         <br/>
 
-        <form id="formular">
-            <div id="eingabe">
-                <div id="anrede">
-                    <label class="inf">Anrede:</label>
-                    <select id="an" class="wahl" name="anrede">
-                        <option value="herr">Herr</option>
-                        <option value="frau">Frau</option>
-                    </select>
-                </div>
+        <div id="eingabe">
+            <div id="anrede">
+                <label class="inf">Anrede:</label>
+                <select id="an" class="wahl" name="anrede">
+                    <option value="herr">Herr</option>
+                    <option value="frau">Frau</option>
+                </select>
+            </div>
 
-                <br />
+            <br />
 
-                <div id="text">
-                    <label for="t1">Leistungsbeschreibung<dfn title="z.B.: Ich erlaube mir, für die Tätigkeit als Tagesmutter/Mobil Mami von mir erbrachte Leistungen, in Rechnung zu stellen">
+            <div id="text">
+                <label for="t1">Leistungsbeschreibung<dfn title="z.B.: Ich erlaube mir, für die Tätigkeit als Tagesmutter/Mobil Mami von mir erbrachte Leistungen, in Rechnung zu stellen">
                         <img id="frage" src="bilder/fragezeichen.png" />
                     </dfn>:</label>
-                    
-                    <input type="text" id="t1"/>
-                </div>
 
-                <br />
+                <input type="text" id="t1"/>
+            </div>
 
-                <div>
-                    <label class="inf">Kunde:</label>
-                    <select class="wahl" id="empfaenger">
-                        <option>Max Mustermann</option>
-                        <option>Michaela Musterfrau</option>
-                    </select>
-                    <button class="button" id="bearbeiten">Bearbeiten</button>
-                </div>
+            <br />
 
-                <br />
+            <div>
+                <label class="inf">Kunde:</label>
+                <select class="wahl" id="empfaenger">
+                    <option>Max Mustermann</option>
+                    <option>Michaela Musterfrau</option>
+                </select>
+                <button class="button" id="bearbeiten">Bearbeiten</button>
+            </div>
 
-                <div id="kinder">
-                    <label id="kind">Kinder:</label>
-                    <div id="kinderliste"></div>
-                    <br />
-                    <button class="button" id="hinzu">Kind hinzufügen</button>
-                </div>
+            <br />
 
-                <br />
-                <br />
+            <div id="kinder">
+                <label id="kind">Kinder:</label>
+                <div id="kinderliste"></div>
 
-                <div id="ortDatum">
-                    <div id="o">
-                        <label>Ort:</label>
-                        <input type="text" id="ort" />
+                <div class="popup" id="p1">
+                    <div class="content">
+                        <label>Vorname:</label>
+                        <input type="text" id="vname" />
+
+                        <br/>
+
+                        <label>Nachname:</label>
+                        <input type="text" id="nname" />
+
+                        <br/>
+
+                        <label>Kernzeiten:</label>
+                        <input type="text" id="kernzzeit" placeholder="üblicherweise Mo-Sa von 8-17 Uhr" />
+
+                        <br/>
+
+                        <label>Randzeiten:</label>
+                        <input type="text" id="randzeit" placeholder="üblicherweise von 6-8 und von 17-20 Uhr" />
+
+                        <br/>
+
+                        <label>Sonstige:</label>
+                        <input type="text" id="sonstige" placeholder="Sonntag, oder Übernachtung " />
+
+                        <button class="button" onclick="popup_close('p1')">Schließen</button>
+
                     </div>
-                    
-                    <br/>
+                </div>
 
-                    <div id="d">
-                        <label class="inf">Datum:</label>
-                        <input type="text" id="datum" />
-                    </div>
+                <br />
+
+                <button class="button" id="hinzu" onclick="popup_open('p1')">Kind hinzufügen</button>
+            </div>
+
+            <br />
+
+            <div id="zwischensum">
+                <label id="z">Zwischensumme:</label>
+                <label id="sum"></label>
+            </div>
+
+            <br />
+
+            <div id="ortDatum">
+                <div id="o">
+                    <label>Ort:</label>
+                    <input type="text" id="ort" />
+                </div>
+
+                <br/>
+
+                <div id="d">
+                    <label class="inf">Datum:</label>
+                    <input type="text" id="datum" />
                 </div>
             </div>
-        </form>
+        </div>
 
         <script>
             document.getElementById('empfaenger').onclick = function () {
@@ -142,11 +186,19 @@
                     panel.style.display = "block";
                 }
             }
-            
-            $('#hinzu').on('click', function() {
-                
+
+            $('#hinzu').on('click', function () {
+
             });
-            
+
+            function popup_open(p) {
+                document.getElementById(p).style.display = "block";
+            }
+
+            function popup_close(p) {
+                document.getElementById(p).style.display = "none";
+            }
+
         </script>
 
     </body>
