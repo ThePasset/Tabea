@@ -17,13 +17,13 @@ and open the template in the editor.
                 border-style: solid;
                 border-width: 3px;
                 width: 360px;
-                height: 300px;
             }
             
             .loginInput{
                 margin-top: 5px;
                 height: 50px;
                 width : 350px;
+                font-size: 20px;
             }
             
             .loginSubmit{
@@ -34,9 +34,12 @@ and open the template in the editor.
                 background-color: #ffcc00;
                 border-width: 0px;
                 border-radius: 5px;
+                font-size: 20px;
             }
             
             #warning{
-                
-                
+                padding-top: 20px;
+                color: red;
+                font-size: 15px;
+                text-align: center;
             }
