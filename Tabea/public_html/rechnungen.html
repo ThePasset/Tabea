@@ -1,50 +1,90 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
 
-    <link rel="stylesheet" type="text/css" href="styles\HeaderStyle.css"/>
-    <link rel="stylesheet" type="text/css" href="styles\layout.css"/>
-    
-    <style>
-        .button {
-            height: 40px;
-            position: absolute;
-            margin-left: 45%
-        }
-    </style>
-    
-</head>
-<body>
-    <div class="header">Rechnungsformular</div>
+        <link rel="stylesheet" type="text/css" href="styles\HeaderStyle.css"/>
+        <link rel="stylesheet" type="text/css" href="styles\layout.css"/>
 
-    <form id="formular">
-        <div id="anrede">
-            <label>Anrede:</label>
-            <select class="wahl" name="anrede">
-                <option value="herr">Herr</option>
-                <option value="frau">Frau</option>
-            </select>
-        </div>
+        <style>
+            .button {
+                height: 40px;
+                margin-left: 60px;
+            }
 
-        <br />
+            form {
+                position: absolute;
+                margin-left: 40%
+            }
 
-        <div id="text">
-            <label>Text:</label>
-            <input type="text" id="t1"/>
-        </div>
+            div.panel {
+                padding: 0 18px;
+                display: none;
+                background-color: white;
+            }
 
-        <br />
+            #bearbeiten {
+                height: 15px;
+                width: 80px;
+                margin-left: 10px;
+            }
+            
+        </style>
 
-        <div id="kinder">
-            <button class="button" id="hinzu">Kind hinzufügen</button>
-        </div>
+    </head>
+    <body>
+        <div class="header">Rechnungsformular</div>
 
-        
+        <br/>
 
-    </form>
+        <form id="formular">
+            <div id="anrede">
+                <label>Anrede:</label>
+                <select class="wahl" name="anrede">
+                    <option value="herr">Herr</option>
+                    <option value="frau">Frau</option>
+                </select>
+            </div>
 
-</body>
+            <br />
+
+            <div id="text">
+                <dfn title="z.B.: Ich erlaube mir, für die Tätigkeit als Tagesmutter/Mobil Mami von mir erbrachte Leistungen, in Rechnung zu stellen">Text:</dfn>
+                <input type="text" id="t1"/>
+            </div>
+
+            <br />
+
+            <div>
+                <label>Kunde:</label>
+                <select class="wahl" name="empfaenger">
+                    <option>Max Mustermann</option>
+                    <option>Michaela Musterfrau</option>
+                </select>
+                <button class="button" id="bearbeiten">Bearbeiten</button>
+            </div>
+
+            <br />
+
+            <div id="kinder">
+                <button class="button" id="hinzu">Kind hinzufügen</button>
+            </div>
+
+        </form>
+
+        <script>
+            document.getElementById('empfaenger').onclick = function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            }
+        </script>
+
+    </body>
 </html>
