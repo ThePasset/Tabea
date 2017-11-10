@@ -16,6 +16,11 @@
     font-weight: 600;
 }
 
+body{
+    margin: 0px;
+    height: fit-content;
+}
+
 .button{
     height: 25px;
     width: 100px;

@@ -9,37 +9,33 @@ and open the template in the editor.
         <title>Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="styles\layout.css"/>
         <link rel="stylesheet" type="text/css" href="styles\HomeStyle.css"/>
-        <style>
-            #MainContent{
-                position: absolute;
-                top: 123px;;
-                left: 17%;
-            }
+        
+        <script>
+            $(document).ready(function(){
+                
+               var topOffset = $("#Menu").outerHeight();
+               var negativeOffset = topOffset - ((topOffset * 2) + 5);
+               $(".MainContentEntry").css("top",negativeOffset);
+               $(".MainContentBorder").css("top", topOffset -1);
+               $(".MainContentBorder").css("height", $(".MainContentEntry").first().height() - topOffset + 1);
+               
+               $(".MenuEntry").click(function() {
+                    $(".MenuEntry").css("background-color", "#ffcc00");
+                    $(".MenuEntry").css("border-right-width", "1px");
+                    $(this).css("border-right-width","0px");
+                    $(this).css("background-color", "#ffe200");
+               });
+            });
             
-            #Menu{
-                width: 15%;
-                margin-top: 5px;
-                border: 1px;
-                border-style: solid;
-                padding-bottom: 70%;
-            }
-
-            .MenuEntry{
-                padding: 5px;
-                border-width: 1px;
-                border-style: solid;
-                border-color: #cc3300;
-                color: black;
-                font-weight: bold;
-                text-align: center;
-            }
-
-            .MenuEntry:hover{
-                background-color: #ffe200;
-            }
+        </script>
+        
+        <style>
+            
         </style>
+        
     </head>
     <body>
         <div class="header">Home</div>
@@ -50,30 +46,47 @@ and open the template in the editor.
         </div>
         
         <div id="Menu">
-            <div class="MenuEntry" onclick="toShow('Kalender')">
+            <div class="MenuEntry" onclick="toShow('kalender')">
                 Kalender
             </div>
-            <div class="MenuEntry" onclick="location.href = 'rechnungen.html';">
+            <div class="MenuEntry" onclick="toShow('rechnungen')">
                 Abrechnungen
             </div>
-            <div class="MenuEntry" onclick="toShow('Einstellungen')">
+            <div class="MenuEntry" onclick="toShow('einstellungen')">
                 Einstellungen
             </div>
-            <div class="MenuEntry" onclick="toShow('Etc.')">
+            <div class="MenuEntry" onclick="toShow('etc')">
                 Etc.
             </div>
             
         </div>
         
-        <div id="MainContent">
-            asdf
+        <div id="kalender" class="MainContentEntry">
+            <h1>Kalender</h1> <br/>
+            noch in arbeit ...
+            <div class="MainContentBorder"></div>
+        </div>
+        <div id="rechnungen" class="MainContentEntry">
+            <h1>Rechnungen</h1> <br/>
+            noch in arbeit ...
+            <div class="MainContentBorder"></div>
+        </div>
+        <div id="einstellungen" class="MainContentEntry">
+            <h1>Einstellungen</h1> <br/>
+            noch in arbeit ...
+            <div class="MainContentBorder"></div>
+        </div>
+        <div id="etc" class="MainContentEntry">
+            <h1>Zusätzliche Menüpunkte</h1> <br/>
+            noch in arbeit ...
+            <div class="MainContentBorder"></div>
         </div>
         
         
         <script>
             function toShow(s){
-                
-                document.getElementById("MainContent").innerHTML = s;
+                $(".MainContentEntry").css("display", "none");
+                document.getElementById(s).style.display = "block";
             }
             
         </script>

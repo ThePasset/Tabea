@@ -9,27 +9,49 @@ and open the template in the editor.
 */
 
 #Menu{
-    background-color: #ffcc00;
-    width: 15%;
-    margin-top: 5px;
+    width: 20%;
+    margin-top: 10px;
+    height: fit-content;
+    margin-bottom: 5px;
 }
 
 .MenuEntry{
     padding: 5px;
     border-width: 1px;
     border-style: solid;
-    border-color: #cc3300;
     color: black;
     font-weight: bold;
     text-align: center;
+    overflow: hidden;
+    background-color: #ffcc00;
+    height: 50px;
+    line-height: 50px;
+    border-bottom-width: 0px;
 }
 
-.MenuEntry:hover{
-    background-color: #ffe200;
+.MenuEntry:last-child{
+    border-bottom-width: 1px;
 }
 
-#MainContent{
+.MainContentBorder{
+    background-color: black;
+    position: absolute;
+    width:  1px;
+    left: -1px;
+}
+            
+.MainContentEntry{
+    text-align: center;
+    display: none;
     background-color: #ffe200;
+    position: relative;
+    width: 79.5%;
+    left: 20%;
+    height: 1000px;
+    border: 1px;
+    border-style: solid;
+    border-left: 0px;
+    
 }
 
 #MainHeaderLogStatus{
@@ -43,3 +65,10 @@ and open the template in the editor.
     font-weight: 600;
     font-family: Arial;
     }
+    
+#logout{
+    height: 30px;
+    width: 70px;
+    position: relative;
+    left: 20%;
+}
