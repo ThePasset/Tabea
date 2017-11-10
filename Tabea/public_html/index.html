@@ -16,11 +16,24 @@ and open the template in the editor.
         
         <div class="header">Login Bereich</div>
         <div>
-            <form action="mainPage.html" id="loginForm" name="loginBereich">
-                <input class="loginInput" type="text" placeholder="Benutzername">
-                <input class="loginInput" type="password" placeholder="Passwort">
-                <input class="loginSubmit" type="submit" value="Login">
+            <form action="mainPage.html" onsubmit="return check()" id="loginForm" name="loginBereich">
+                <input id="User" class="loginInput" type="text" placeholder="Benutzername">
+                <input id="Pw" class="loginInput" type="password" placeholder="Passwort">
+                <input id="Login" class="loginSubmit" type="submit" value="Login">
+                <div id="warning"></div>
             </form>
         </div>
+        
+        <script>
+            function check(){
+                if(document.getElementById("User").value === "User" && document.getElementById("Pw").value === "test"){
+                        return true;
+                }else {
+                    document.getElementById("warning").innerHTML = "Fehler";
+                    return false;
+                }
+                
+            }
+        </script>
     </body>
 </html>
