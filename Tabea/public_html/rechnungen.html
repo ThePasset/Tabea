@@ -6,96 +6,49 @@
         <title></title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="styles\layout.css"/>
+        <link rel="stylesheet" type="text/css" href="styles\rechnungen.css"/>
 
         <style>
-            #buttonBack{
+            .P1Label{
+                display: block;
                 width: 100px;
-                height: 40px;
-                font-size: 15px;
-                position: absolute;
-                top: 3%;
-                left: 5%;
-            }
-            
-            #Form{
-                border-width: 1px;
-                border-style: solid;
-                padding: 10px;
-                font-size: 20px;
-                width: fit-content;
-            }
-            
-            #LeistBeschr{
-                width: 500px;
-                height: 50px;
-                text-align: start;
-            }
-            
-            .FormInputDiv{
-                margin-top: 20px;
-                margin-bottom:20px;
-            }
-            
-            .FormLabel{
-                font-size:18px;
-            }
-            
-            .FormInput{
-                font-size: 18px;
-                width: 80px;
-                text-align: center;
-                height: 20px;
+                float: left;
                 
             }
             
-            .toolTipIcon{
-                height: 10px;
-                width: 10px;
+            .P1Div{
+                margin-top: 20px;
+            }
+
+            .FormInput{
+                margin-bottom: 5px;
             }
             
-            .dropInput{
-                height: 25px;
+            #P1Content{
+                width: 300px;
+                padding: 10px;
             }
-            
-            .longInput{
-                width: 200px;
-            }
-            
-            #FormEmpfaengerChange{
+
+            .PopupButton{
                 width: 100px;
+                margin-top:10px;
+                margin-right:5px;
                 height: 30px;
-                margin-left: 10px;
             }
-            
-            .Bold{
-                font-weight: bold;
-            }
-            
-            .Desc{
-                height: 25px;
-                text-align: center;
-                padding: 5px;
-            }
-            
-            #FormInputMatrix{
-                border-collapse: collapse;
-            }
-            
-            .AddButton{
-                width: 20px;
-                height:20px;
-            }
-            
+
         </style>
+
     </head>
     <body>
+        <!--Header-->
         <div class="header">
             Rechnungsformular
             <input type="button" class="headerButton" id="buttonBack" onclick="location.href = 'mainPage.html'" value="Zurück"/>
         </div>
-        
+
+        <!--Formular-->
         <div id="Form">
-            
+
             <!--<div id="DivAnrede" class="FormInputDiv">
                 <label for="FormAnrede" class="FormLabel">
                     Anrede des Kunden/der Kundin:
@@ -106,7 +59,6 @@
                     <option value="frau">Frau</option>
                 </select>
             </div> -->
-            
             <div id="DivLeistBeschr" class="FormInputDiv">
                 <label class="FormLabel" for="LeistBeschr">Leistungsbeschreibung
                     <dfn title="z.B.: Ich erlaube mir, für die Tätigkeit als Tagesmutter/Mobil Mami von mir erbrachte Leistungen, in Rechnung zu stellen">
@@ -117,7 +69,6 @@
                 <br/>
                 <textarea class="FormInput" id="LeistBeschr"></textarea>
             </div>
-            
             <div id="DivKunde" class="FormInputDiv">
                 <label class="FormLabel" for="FormEmpfaenger">Kunde:</label>
                 <select class="FormInput dropInput longInput" id="FormEmpfaenger">
@@ -129,16 +80,16 @@
             <div id="DivRechnMatrix" class="FormInputDiv">
                 <table id="FormInputMatrix" border="1">
                     <caption>Betreuungsstunden</caption>
-                        <tr>
-                            <td class="Desc">Kernzeiten</td>
-                            <td class="Desc">Randzeiten</td>
-                            <td class="Desc">Sonstige</td>
-                            <td class="Desc">Gesamt</td>
-                            <td class="Desc"> Betreuungsbeitrag<br/>/ Std Kernzeit</td>
-                            <td class="Desc"> Betreuungsbeitrag<br/>/ Std Randzeit</td>
-                            <td class="Desc"> Betreuungsbeitrag<br/>/ Std Sonstige</td>
-                            <td class="Desc"> Betrag</td>
-                        </tr>
+                    <tr>
+                        <td class="Desc">Kernzeiten</td>
+                        <td class="Desc">Randzeiten</td>
+                        <td class="Desc">Sonstige</td>
+                        <td class="Desc">Gesamt</td>
+                        <td class="Desc"> Betreuungsbeitrag<br/>/ Std Kernzeit</td>
+                        <td class="Desc"> Betreuungsbeitrag<br/>/ Std Randzeit</td>
+                        <td class="Desc"> Betreuungsbeitrag<br/>/ Std Sonstige</td>
+                        <td class="Desc"> Betrag</td>
+                    </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -151,12 +102,12 @@
                             <td class="Desc Bold">Zwischensumme</td>
                         </tr>
                         <tr id="Landesf">
-                            <td class="Desc">abzüglich Landesförderung - Zuschuss zum Betreuungsbeitrag</td>
+                            <td class="Desc">abzüglich Landesförderung- Zuschuss zum Betreuungsbeitrag</td>
                         </tr>
                         <tr id="Verpf">
                             <td class="Desc">Verpflegung</td>
                         </tr>
-                        <tr id="">
+                        <tr id="Bastelb">
                             <td class="Desc"> Bastelbeiträge</td>
                         </tr>
                         <tr>
@@ -165,34 +116,80 @@
                                 <input class="AddButton button" type="button" value="+" onclick="popup_open('PopupAddMisc')"/>
                             </td>
                         </tr>
+                    </tbody>
+                    <tfoot>
                         <tr>
                             <td class="Desc Bold">Gesamtsumme</td>
                         </tr>
-                    </tbody>
+                    </tfoot>
                 </table>
             </div>
         </div>
-                <div class="popup" id="p1">
-                    <div class="content">
-                        <label>Vorname:</label>
-                        <input type="text" id="vname" />
-                        
-                        <label>Nachname:</label>
-                        <input type="text" id="nname" />
 
-                        <label>Kernzeiten:</label>
-                        <input type="text" id="kernzzeit" placeholder="üblicherweise Mo-Sa von 8-17 Uhr" />
-
-                        <label>Randzeiten:</label>
-                        <input type="text" id="randzeit" placeholder="üblicherweise von 6-8 und von 17-20 Uhr" />
-
-                        <label>Sonstige:</label>
-                        <input type="text" id="sonstige" placeholder="Sonntag, oder Übernachtung " />
-
-                        <button class="button" onclick="popup_close('p1')">Schließen</button>
-
-                    </div>
+        <!--Popups-->
+        <div id="PopupKundeBearbeiten" class="popup">
+            <div id="P1Content" class="content">
+                <div class="P1Div">
+                    <label for="FormAnrede">
+                        Anrede des Kunden/der Kundin:
+                    </label>
+                    <select id="FormAnrede" class="FormInput dropInput">
+                        <option value="herr">Herr</option>
+                        <option value="frau">Frau</option>
+                    </select>
                 </div>
-        
+                <div class="P1Div">
+                    <label class="P1Label" for="P1Titel">Titel:</label>
+                    <input class="FormInput longInput" type="text" id="P1Titel"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1Vname">Vorname:</label>
+                    <input class="FormInput longInput" type="text" id="P1Vname"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1Nname">Nachname: </label>
+                    <input class="FormInput longInput" type="text" id="P1Nname"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1Strasse">Stra&szlig;e:</label>
+                    <input class="FormInput longInput" type="text" id="P1Strasse"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1StraNum">Stra&szlig;en-Nr.:</label>
+                    <input class="FormInput longInput" type="text" id="P1StraNum"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1StiNum">Stiegen-Nr.:</label>
+                    <input class="FormInput longInput" type="text" id="P1StiNum"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1TuerNum">T&uuml;r-Nr.:</label>
+                    <input class="FormInput longInput" type="text" id="P1TuerNum"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1PLZ">PLZ:</label>
+                    <input class="FormInput longInput" type="number" id="P1PLZ"/>
+                </div>
+                <div>
+                    <label class="P1Label" for="P1Ort">Ort:</label>
+                    <input class="FormInput longInput" type="text" id="P1Ort"/>
+                </div>
+                <div>
+                    <input class="button FormInput PopupButton" type="button" value="Speichern" onclick="popup_close()"/>
+                    <input class="button FormInput PopupButton" type="button" value="Abbrechen" onclick="popup_close()"/>
+                </div>
+            </div>
+        </div>
+        <script>
+            function popup_open(toOpen) {
+                document.getElementById(toOpen).style.display = 'block';
+            }
+            
+            function popup_close(){
+                $(".popup").css("display", "none");
+            }
+
+
+        </script>
     </body>
 </html>
