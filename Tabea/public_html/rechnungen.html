@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <title></title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="util/jquery.js"></script>
         <link rel="stylesheet" type="text/css" href="styles\layout.css"/>
         <link rel="stylesheet" type="text/css" href="styles\rechnungen.css"/>
 
@@ -44,7 +44,14 @@
                 left:5%;
             }
             
-
+            #P3Content{
+                width: 300px;
+                padding: 10px;
+                position:absolute;
+                top: 500px;
+                left:5%;
+            }
+            
         </style>
 
         <script>
@@ -57,6 +64,7 @@
                         $(this).html(input);
                     });
                 });
+                reloadMatrix();
             });
 
             
@@ -116,7 +124,7 @@
                     </tr>
                     </thead>
                     <tbody id="FormInputMatrixBody">
-                        <tr>
+                        <tr class="Kinder">
                             <td class="Desc">
                                 Kind
                                 <input class="AddButton button" type="button" value="+" onclick="popup_open('PopupAddChild')"/>
@@ -207,19 +215,31 @@
         
         <div id="PopupAddChild" class="popup">
             <div id="P2Content" class="content">
+                <label class="FormLabel" for="P2Select">Kind Auswählen:</label>
             <select id="P2Select" class="FormInput dropInput longInput" id="P1ChildSelector">
                 <option>Maxi</option>
                 <option>Alexander</option>
                 <option>Lukas</option>
             </select>
             <div>
-                <input class="button FormInput PopupButton" type="button" value="Hinzufügen" onclick="popup_submit('popupAddChild')"/>
+                <input class="button FormInput PopupButton" type="button" value="Hinzufügen" onclick="popup_close()"/>
                 <input class="button FormInput PopupButton" type="button" value="Abbrechen" onclick="popup_close()"/>
             </div>
             </div>
         </div>
+        <div id="PopupAddMisc" class="popup">
+            <div id="P3Content" class="content">
+                <label class="FormLabel" for="P3Text">Bezeichnung: </label>
+                <input id="P3Text" class="FormInput longInput dropInput" type="text">
+                <div>
+                    <input class="button FormInput PopupButton" type="button" value="Hinzufügen" onclick="popup_close()"/>
+                    <input class="button FormInput PopupButton" type="button" value="Abbrechen" onclick="popup_close()"/>
+                </div>
+            </div>
+        </div>
         <script>
             
+            function reloadMatrix(){
             var toFill = ["ZwSum","Landesf","Verpf", "Bastelb", "TotSum"];
             var k = 0;
             var editable = ["Landesf", "Verpf", "Bastelb"];
@@ -232,11 +252,12 @@
                     if($.inArray(ParentID, editable) === -1){
                         Parent.innerHTML = Parent.innerHTML + "<td><div>"+ k + i +"</div></td>";
                     }else {
-                        Parent.innerHTML = Parent.innerHTML + "<td><div contenteditable>"+ k + i +"</div></td>";
+                        Parent.innerHTML = Parent.innerHTML + "<td><div class='editableMatrixCell' contenteditable>"+ k + i +"</div></td>";
                     }
                 }
             });
             
+        }
             
             function popup_open(toOpen) {
                 document.getElementById(toOpen).style.display = 'block';
@@ -246,7 +267,11 @@
                 $(".popup").css("display", "none");
             }
             
-            function popup_submit(type){
+            function popup_submit(SubmitID){
+                var val = document.getElementById(SubmitID).value;
+                if(SubmitID === 'P2Submit'){
+                    document.getElementById(("FormInputMatrixBody")).innerHTML = "<trclass='Kinder'><td class='Desc'>"+ val+"</td></tr>"
+                }
                 
             }
 
