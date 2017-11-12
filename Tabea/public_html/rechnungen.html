@@ -35,9 +35,33 @@
                 margin-right:5px;
                 height: 30px;
             }
+            
+            #P2Content{
+                width: 300px;
+                padding: 10px;
+                position:absolute;
+                top: 300px;
+                left:5%;
+            }
+            
 
         </style>
 
+        <script>
+            $(document).ready(function(){
+                $('.editValues').click(function () {
+                    $(this).parents('tr').find('td.editableColumns').each(function() {
+                        var html = $(this).html();
+                        var input = $('<input class="editableColumnsStyle" type="text" />');
+                        input.val(html);
+                        $(this).html(input);
+                    });
+                });
+            });
+
+            
+        </script>
+        
     </head>
     <body>
         <!--Header-->
@@ -91,7 +115,7 @@
                         <td class="Desc"> Betrag</td>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="FormInputMatrixBody">
                         <tr>
                             <td class="Desc">
                                 Kind
@@ -118,7 +142,7 @@
                         </tr>
                     </tbody>
                     <tfoot>
-                        <tr>
+                        <tr id="TotSum">
                             <td class="Desc Bold">Gesamtsumme</td>
                         </tr>
                     </tfoot>
@@ -180,13 +204,50 @@
                 </div>
             </div>
         </div>
+        
+        <div id="PopupAddChild" class="popup">
+            <div id="P2Content" class="content">
+            <select id="P2Select" class="FormInput dropInput longInput" id="P1ChildSelector">
+                <option>Maxi</option>
+                <option>Alexander</option>
+                <option>Lukas</option>
+            </select>
+            <div>
+                <input class="button FormInput PopupButton" type="button" value="Hinzufügen" onclick="popup_submit('popupAddChild')"/>
+                <input class="button FormInput PopupButton" type="button" value="Abbrechen" onclick="popup_close()"/>
+            </div>
+            </div>
+        </div>
         <script>
+            
+            var toFill = ["ZwSum","Landesf","Verpf", "Bastelb", "TotSum"];
+            var k = 0;
+            var editable = ["Landesf", "Verpf", "Bastelb"];
+            toFill.forEach(function(ParentID){
+                var Parent = document.getElementById(ParentID);
+                
+                var ColAnz = 6;
+                k++;
+                for(i = 0; i <= ColAnz; i++){
+                    if($.inArray(ParentID, editable) === -1){
+                        Parent.innerHTML = Parent.innerHTML + "<td><div>"+ k + i +"</div></td>";
+                    }else {
+                        Parent.innerHTML = Parent.innerHTML + "<td><div contenteditable>"+ k + i +"</div></td>";
+                    }
+                }
+            });
+            
+            
             function popup_open(toOpen) {
                 document.getElementById(toOpen).style.display = 'block';
             }
             
             function popup_close(){
                 $(".popup").css("display", "none");
+            }
+            
+            function popup_submit(type){
+                
             }
 
 
