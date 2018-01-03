@@ -1,8 +1,8 @@
 .header{
     background-color: #ffcc00;
     width: 100%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     font-size: 50px;
     text-align: center;
     font-family: Arial;
@@ -22,11 +22,10 @@ body{
 }
 
 .button{
-    height: 25px;
-    width: 100px;
+    height: 38px;
+    width: 120px;
     background-color: #ffcc00;
     border-width: 0px;
-    border-radius: 5px;
 }
 
 html {
@@ -59,4 +58,51 @@ html {
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
+}
+
+.menue {
+    background-color: gray;
+}
+
+.nav-link {
+    color: white;
+
+}
+
+.col {
+    background-color: lightgray;
+}
+
+.nav {
+    margin-left: 70px;
+}
+
+.nav-item {
+    margin-right: 80px;
+}
+
+.nav-item a:hover {
+    background-color: #ffcc00;
+    color: black;
+}
+
+.nav-item a:focus {
+    background-color: #ffcc00;
+    color: black;
+}
+
+.bold {
+    font: bold;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 3px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }

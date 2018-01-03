@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="util/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="HomeStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+    <style>
+     
+    </style>
+    
+</head>
+
+<body>
+    <div id="head" class="header">Home</div>
+    <div id="MainHeaderLogStatus">
+        <div id="LoggedUser">Testbenutzer</div>
+        <input id="logout" class="headerButton" type="button" onclick="location.href = 'login.html';" value="Logout">
+    </div>
+
+    <div class="menue sticky-top">
+        <nav class="nav, nav justify-content-center">
+            <li class="nav-item" >
+                <a class="nav-link" href="#" onclick="changeContent('Kalender');">Kalender</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="changeContent('Verwaltung');">Verwaltung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="changeContent('Einstellungen');">Einstellungen</a>
+            </li>
+        <nav>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="left, col">
+            </div>
+
+            <div id="content" class="page, col-lg-8">
+            </div>
+
+            <div class="right, col">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toShow(s) {
+            $(".MainContentEntry").css("display", "none");
+            document.getElementById(s).style.display = "block";
+        }
+
+        function changeContent(m) {
+            document.getElementById("head").innerHTML = m;
+            document.getElementById("content").innerHTML='<object type="text/html" data="' + m + '.html" style=" width:100%; height: 100%;"></object>';
+        }
+
+    </script>
+</body>
+
+</html>
