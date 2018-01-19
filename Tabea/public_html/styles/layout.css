@@ -12,7 +12,6 @@
     background-color: white;
     color: #333300;
     border-width: 0px;
-    border-radius: 5px;
     font-weight: 600;
 }
 
@@ -28,7 +27,7 @@ body{
     border-width: 0px;
 }
 
-html {
+html:not(span) {
     font-family: Arial;
 }
 

@@ -9,14 +9,22 @@ and open the template in the editor.
         <title>login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../styles/Layout.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
         <link rel="stylesheet" type="text/css" href="../styles/LoginStyle.css"/>
+        
+        <style>
+            #balken {
+                height: 40px;
+            }
+        </style>
+        
     </head>
     <body>
         
         <div class="header">Login Bereich</div>
         <div>
-            <form action="mainPage.html" onsubmit="return check()" id="loginForm" name="loginBereich">
+            <div id="balken" class="menue sticky-top"></div>
+            <form action="home.html" onsubmit="return check()" id="loginForm" name="loginBereich">
                 <input id="User" class="loginInput" type="text" placeholder=" Benutzername">
                 <input id="Pw" class="loginInput" type="password" placeholder=" Passwort">
                 <input id="Login" class="loginSubmit" type="submit" value="Login">

@@ -31,13 +31,12 @@ and open the template in the editor.
             }
             
             .loginSubmit{
-                margin-top: 15px;
+                margin-top: 30px;
                 height: 50px;
                 width: 250px;
                 margin-left: 15%;
                 background-color: #ffcc00;
                 border-width: 0px;
-                border-radius: 5px;
                 font-size: 20px;
             }
             
