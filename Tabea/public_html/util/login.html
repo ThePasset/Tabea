@@ -11,36 +11,45 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
         <link rel="stylesheet" type="text/css" href="../styles/LoginStyle.css"/>
-        
+
         <style>
             #balken {
                 height: 40px;
             }
+
+            #speichern {
+                height: 25px;
+                width: 25px;
+                background-color: #eee;
+            }
         </style>
-        
+
     </head>
     <body>
-        
+
         <div class="header">Login Bereich</div>
         <div>
             <div id="balken" class="menue sticky-top"></div>
             <form action="home.html" onsubmit="return check()" id="loginForm" name="loginBereich">
                 <input id="User" class="loginInput" type="text" placeholder=" Benutzername">
                 <input id="Pw" class="loginInput" type="password" placeholder=" Passwort">
+                <br>
+                <br>
+                <input id="speichern" class="form-check-input" type="checkbox"> Passwort speichern
                 <input id="Login" class="loginSubmit" type="submit" value="Login">
                 <div id="warning"></div>
             </form>
         </div>
-        
+
         <script>
-            function check(){
-                if(document.getElementById("User").value === "User" && document.getElementById("Pw").value === "test"){
-                        return true;
-                }else {
+            function check() {
+                if (document.getElementById("User").value === "User" && document.getElementById("Pw").value === "test") {
+                    return true;
+                } else {
                     document.getElementById("warning").innerHTML = "Ungültige Anmeldedaten. Überprüfen Sie bitte Benutzername / Password und versuchen sie es erneut!";
                     return false;
                 }
-                
+
             }
         </script>
     </body>

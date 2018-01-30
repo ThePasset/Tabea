@@ -24,6 +24,12 @@ and open the template in the editor.
                 height: 2.5px;
                 margin-bottom: 20px;
             }
+
+            #dropd {
+                background-color: #ffcc00;
+                border: none;
+                color: black;
+            }
         </style>
 
     </head>
@@ -47,11 +53,27 @@ and open the template in the editor.
                     <label for="pw2">Passwort wiederholen:</label>
                     <input type="password" class="form-control" id="pw2">
                 </div>
+                <div class="form-group">
+                    <label for="name">Straße ändern:</label>
+                    <input type="text" class="form-control" id="straße">
+                </div>
+                <div class="form-group">
+                    <label for="name">PLZ ändern:</label>
+                    <input type="text" class="form-control" id="PLZ">
+                </div>
+                <div class="form-group">
+                    <label for="name">Wohnort ändern:</label>
+                    <input type="text" class="form-control" id="wohnort">
+                </div>
+                <div class="form-group">
+                    <label for="name">Beratungszentrum:</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
             </form>
-            
+
             <br>
             <br>
-            
+
             <p id="tarife">
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <b style="font-size: 25px;">Tarife</b>
@@ -72,19 +94,69 @@ and open the template in the editor.
                 </div>
             </form>
             <br>
-            <button type="submit" class="button">Speichern</button>
+            <div class="dropdown">
+                <button id="dropd" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Kern-/Randzeiten
+                </button>
+                <div class="dropdown-menu">
+                    <button id="mon" class="dropdown-item" onclick="inputTime('Montag');">Montag</button>
+                    <button id="tue" class="dropdown-item" onclick="inputTime('Dienstag');">Dienstag</button>
+                    <button id="wed" class="dropdown-item" onclick="inputTime('Mittwoch');">Mittwoch</button>
+                    <button id="thu" class="dropdown-item" onclick="inputTime('Donnerstag');">Donnerstag</button>
+                    <button id="fri" class="dropdown-item" onclick="inputTime('Freitag');">Freitag</button>
+                    <button id="sat" class="dropdown-item" onclick="inputTime('Samstag');">Samstag</button>
+                    <button id="sun" class="dropdown-item" onclick="inputTime('Sonntag');">Sonntag</button>
+                </div>
+                <br>
+                <br>
+                <div class="line"></div>
+                <h3 id="tag"></h3>
+                <div style="padding-left: 60px; display: none;" id="zeiten">
+                    <br>
+                    <div id="kernzeit">
+                        <h5>Kernzeit</h5>
+                        Von:
+                        <input id="kernTimeVon" style="margin-right: 30px;" type="time">
+                        Bis:
+                        <input id="kernTimeBis" type="time">
+                    </div>
+                    <br>
+                    <div id="randzeit">
+                        <h5>Randzeit</h5>
+                        Von:
+                        <input id="randTimeVon" style="margin-right: 30px;" type="time">
+                        Bis:
+                        <input id="randTimeBis" type="time">
+                    </div>
+                    <br>
+                    <div id="sonderzeit">
+                        <h5>Sonderzeit</h5>
+                        Von:
+                        <input id="sonderTimeVon" style="margin-right: 30px;" type="time">
+                        Bis:
+                        <input id="sonderTimeBis" type="time">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button style="float:right;" type="submit" class="button">Speichern</button>
         </div>
-        
-       
+
+
         <script>
             $(document).ready(function () {
                 document.getElementById("benutzer").onclick(function () {
-                   $("#benutzereinstellungen").hide(); 
+                    $("#benutzereinstellungen").hide();
                 });
                 $("#show").click(function () {
                     $("p").show();
                 });
             });
+
+            function inputTime(day) {
+                document.getElementById("tag").innerHTML = day;
+                $("#zeiten").show();
+            }
         </script>
     </body>
 </html>
