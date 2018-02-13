@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registrierung</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <script src="jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
+        <link rel="stylesheet" type="text/css" href="../styles/HomeStyle.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        
+        <style>
+            .menue {
+                height: 40px;
+            }
+            
+            #reg {
+                height: 50px;
+                width: 280px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="head" class="header">Registrierung</div>
+
+        <div class="menue sticky-top">
+            <nav class="nav, nav justify-content-center">
+                <li class="nav-item" >
+                    <a class="nav-link" href="#"></a>
+                </li>
+            </nav>
+        </div>
+
+        <div id="cont" class="container">
+            <div id="r" class="row">
+                <div class="left, col">
+                </div>
+
+                <div id="content" class="test, page, col-lg-8">
+                    <form id="anmeldung" style="margin-top: 20px;">
+                        <div class="form-group">
+                            <label for="name">Benutzername eingeben:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="pw">Passwort:</label>
+                            <input type="password" class="form-control" id="pw" placeholder="Passwort">
+                        </div>
+                        <div class="form-group">
+                            <label for="pw2">Passwort wiederholen:</label>
+                            <input type="password" class="form-control" id="pw2" placeholder="Passwort wiederholen">
+                        </div>
+                        <div class="form-group">
+                            <label for="vname">Vorname eingeben:</label>
+                            <input type="text" class="form-control" id="vname" placeholder="Vorname">
+                        </div>
+                        <div class="form-group">
+                            <label for="nname">Nachname eingeben:</label>
+                            <input type="text" class="form-control" id="nname" placeholder="Nachname">
+                        </div>
+                        <div class="form-group">
+                            <label for="straße">Straße eingeben:</label>
+                            <input type="text" class="form-control" id="straße" placeholder="Straße">
+                        </div>
+                        <div class="form-group">
+                            <label for="PLZ">PLZ eingeben:</label>
+                            <input type="text" class="form-control" id="PLZ" placeholder="0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="wohnort">Wohnort eingeben:</label>
+                            <input type="text" class="form-control" id="wohnort" placeholder="Wohnort">
+                        </div>
+                        <div class="form-group">
+                            <label for="zentrum">Beratungszentrum:</label>
+                            <input type="text" class="form-control" id="zentrum" placeholder="Zentrum">
+                        </div>
+                    </form>
+                    <br>
+                    <button id="reg" class="button">Registrieren</button>
+                    <br>
+                    <br>
+                </div>
+                <div class="right, col">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
