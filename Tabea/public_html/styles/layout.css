@@ -45,6 +45,7 @@ html:not(span) {
     background-color: rgba(0,0,0,0.4);
 }
 
+/*
 .content{
     position: relative;
     background-color: #fefefe;
@@ -58,7 +59,7 @@ html:not(span) {
     animation-name: animatetop;
     animation-duration: 0.4s;
 }
-
+*/
 .menue {
     background-color: gray;
 }

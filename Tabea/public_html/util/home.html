@@ -6,82 +6,92 @@ and open the template in the editor.
 -->
 <html>
 
-    <head>
-        <title>Home</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="jquery.js"></script>
-        <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
-        <link rel="stylesheet" type="text/css" href="../styles/HomeStyle.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/HomeStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
-        <style>
+    <style>
+        div#r {
+            height: 100%;
+            width: 100%;
+        }
 
-            div#r {
-                height: 100%;
-                width: 100%;
+        .row {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            if ($("div#LoggedUser").text() !== "Administrator") {
+                $("#admin").css('display', 'none');
             }
+        });
+    </script>
 
-            .row {
-                height: 100%;
-                width: 100%;
-            }
-        </style>
+</head>
 
-    </head>
+<body>
+    <div id="head" class="header">Home</div>
+    <div id="MainHeaderLogStatus">
+        <div id="LoggedUser">Administrator</div>
+        <input id="logout" class="headerButton" type="button" onclick="location.href = 'login.html';" value="Logout">
+    </div>
 
-    <body>
-        <div id="head" class="header">Home</div>
-        <div id="MainHeaderLogStatus">
-            <div id="LoggedUser">Testbenutzer</div>
-            <input id="logout" class="headerButton" type="button" onclick="location.href = 'login.html';" value="Logout">
-        </div>
+    <div class="menue sticky-top">
+        <nav class="nav, nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="changeContent('Kalender');">Kalender</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="changeContent('Verwaltung');">Verwaltung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="changeContent('Einstellungen');">Einstellungen</a>
+            </li>
+            <li id="admin" class="nav-item">
+                <a class="nav-link" href="#" onclick="changeContent('Adminbereich');">Adminbereich</a>
+            </li>
+        </nav>
+    </div>
 
-        <div class="menue sticky-top">
-            <nav class="nav, nav justify-content-center">
-                <li class="nav-item" >
-                    <a class="nav-link" href="#" onclick="changeContent('Kalender');">Kalender</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="changeContent('Verwaltung');">Verwaltung</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="changeContent('Einstellungen');">Einstellungen</a>
-                </li>
-            </nav>
-        </div>
+    <br>
 
-        <br>
+    <div id="cont" class="container">
+        <div id="r" class="row">
+            <div class="left, col">
+            </div>
 
-        <div id="cont" class="container">
-            <div id="r" class="row">
-                <div class="left, col">
-                </div>
+            <div id="content" class="test, page, col-lg-8">
+            </div>
 
-                <div id="content" class="test, page, col-lg-8">
-                </div>
-
-                <div class="right, col">
-                </div>
+            <div class="right, col">
             </div>
         </div>
+    </div>
 
-        <script>
-            function toShow(s) {
-                $(".MainContentEntry").css("display", "none");
-                document.getElementById(s).style.display = "block";
-            }
+    <script>
+        function toShow(s) {
+            $(".MainContentEntry").css("display", "none");
+            document.getElementById(s).style.display = "block";
+        }
 
-            function changeContent(m) {
-                document.getElementById("head").innerHTML = m;
-                document.getElementById("content").innerHTML = '<object id="obj" type="text/html" data="' + m + '.html" style="object-fit:cover; height:900px; width:100%;"></object>';
-                $("#obj").width($("#content").width());
-                $("#obj").height($("#content").height());
-            }
-        </script>
-    </body>
+        function changeContent(m) {
+            document.getElementById("head").innerHTML = m;
+            document.getElementById("content").innerHTML = '<object id="obj" type="text/html" data="' + m + '.html" style="object-fit:cover; height:900px; width:100%;"></object>';
+            $("#obj").width($("#content").width());
+            $("#obj").height($("#content").height());
+        }
+    </script>
+</body>
 
 </html>
