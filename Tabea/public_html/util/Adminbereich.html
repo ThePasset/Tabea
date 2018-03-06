@@ -1,77 +1,128 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Adminbereich</title>
-    <script src="jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/HomeStyle.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <head>
+        <title>Adminbereich</title>
+        <script src="jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
+        <link rel="stylesheet" type="text/css" href="../styles/HomeStyle.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
-    <style>
-        .line {
-            background-color: lightgray;
-            width: 100%;
-            height: 2.5px;
-            margin-bottom: 20px;
-        }
-        
-        th, td, tr {
-            border: none;
-        }
+        <style>
+            .line {
+                background-color: lightgray;
+                width: 100%;
+                height: 2.5px;
+                margin-bottom: 20px;
+            }
 
-        #dropd {
-            background-color: #ffcc00;
-            border-color: #ffcc00;
-            color: black;
-        }
-    </style>
-</head>
+            th, td, tr {
+                border: none;
+            }
 
-<body>
-    <div id="benutzerverwaltung" class="container">
-        <p id="bentuzer">
-            <b style="font-size: 25px;">Benutzerverwaltung</b>
-        </p>
-        <div class="line"></div>
-        <div id="benutzertable" class="content">
-            <table id="benutzer" class="table">
-                <tr>
-                    <th>Benutzername</th>
-                    <th>Vorname</th>
-                    <th>Nachname</th>
-                </tr>
-                <tr>
-                    <td>Testbenutzer</td>
-                    <td>Max</td>
-                    <td>Mustermann</td>
-                    <td style="border:none;">
-                        <div class="dropdown">
-                            <button id="dropd" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                Verwalten
-                            </button>
-                            <div class="dropdown-menu">
-                                <button id="anzeigen" class="dropdown-item">Anzeigen</button>
-                                <button id="sperren" class="dropdown-item">Sperren</button>
-                                <button id="löschen" class="dropdown-item">Löschen</button>
+            #dropd {
+                background-color: #ffcc00;
+                border-color: #ffcc00;
+                color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="benutzerverwaltung" class="container">
+            <p id="bentuzer">
+                <b style="font-size: 25px;">Benutzerverwaltung</b>
+            </p>
+            <div class="line"></div>
+            <div id="benutzertable" class="content">
+                <table id="benutzer">
+                    <tr>
+                        <th>Benutzername</th>
+                        <th>Vorname</th>
+                        <th>Nachname</th>
+                    </tr>
+                    <tr>
+                        <td>Testbenutzer</td>
+                        <td>Max</td>
+                        <td>Mustermann</td>
+                        <td style="border:none;">
+                            <div class="dropdown">
+                                <button id="dropd" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    Verwalten
+                                </button>
+                                <div class="dropdown-menu">
+                                    <button id="anzeigen" class="dropdown-item">Anzeigen</button>
+                                    <button id="sperren" class="dropdown-item">Sperren</button>
+                                    <button id="löschen" class="dropdown-item">Löschen</button>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+                        </td>
+                    </tr>
+                </table>
+                <span>
+                    <br>
+                    <button id='user' onclick='show("#newBenutzer")' class="button">neuer Benutzer</button>
+                    <button style="margin-left:20px;" onclick='show("#newAdmin")' class="button">neuer Admin</button>
+                </span>
+                <div style="display:none" id='newBenutzer'>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Benutzername</th>
+                            <th>Passwort</th>
+                        </tr>
+                        <tr>
+                            <td>User123</td>
+                            <td>hansEXAMPLE!</td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+                <div style="display:none" id='newAdmin'>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Administratorname</th>
+                            <th>Passwort</th>
+                        </tr>
+                        <tr>
+                            <td>Admin123</td>
+                            <td>hansEXAMPLE!</td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+            </div>
         </div>
-    </div>
-    <br>
-    <div id="Dokumente" class="container">
-        <p id="bentuzer">
-            <b style="font-size: 25px;">Dokumente</b>
-        </p>
-        <div class="line"></div>
-        <button style="height:60px; width:150px;" class="button">Report drucken</button>
-    </div>
-</body>
+        <br>
+        <div id="Dokumente" class="container">
+            <p id="bentuzer">
+                <b style="font-size: 25px;">Dokumente</b>
+            </p>
+            <div class="line"></div>
+            <button style="height:60px; width:150px;" class="button">Report drucken</button>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#newBenutzer").hide();
+                $("#newAdmin").hide();
+            });
+            
+            function show(butt) {
+                if(butt === "#newAdmin") {
+                    $("#newBenutzer").hide();
+                } else {
+                    $("#newAdmin").hide();
+                }
+                $(butt).show();
+            }
+            
+        </script>
+
+    </body>
 
 </html>
