@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/HomeStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .nav-link {
+            color: black;
+
+        }
+
+        .nav-item a:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        .nav-item a:focus {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+
+        .line {
+            background-color: lightgray;
+            width: 100%;
+            height: 2.5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Stundenbestätigung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Rechnung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dokument3</a>
+        </ul>
+    </div>
+
+    <div class="container">
+        <br>
+        <br>
+
+        <div id="bestaetigung">
+            <p>
+                <b style="font-size: 25px;">Bestätigung der Betreuungsstunden</b>
+            </p>
+            <div class="line"></div>
+
+            <br>
+
+            <p>
+                <b style="font-size: 20px;">Tagesmutter/-vater</b>
+            </p>
+            <div class="form-group">
+                <label for="tagesPerson">(Mobile/r) Tagesmutter/-vater: </label>
+                <input type="text" class="form-control" id="tagesPerson">
+            </div>
+            <div class="form-group">
+                <label for="tagesAdresse">Adresse:</label>
+                <input type="text" class="form-control" id="tagesAdresse">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="tagesZeitraum">Monat/Jahr: </label>
+                <input type="month" class="form-control" id="tagesZeitraum">
+            </div>
+            <div class="form-group">
+                <label for="tagesRechnung">Rechnungs Nummer:</label>
+                <input type="number" class="form-control" id="tagesRechnung">
+            </div>
+
+            <br>
+
+            <p>
+                <b style="font-size: 20px;">Eltern</b>
+            </p>
+            <div class="form-group">
+                <label for="eltern">Eltern des betreuten Kindes: </label>
+                <input type="text" class="form-control" id="eltern">
+            </div>
+            <div class="form-group">
+                <label for="elternAdresse">Adresse:</label>
+                <input type="text" class="form-control" id="elternAdresse">
+            </div>
+            <div class="form-group">
+                <label for="kind">Betreutes Kindes: </label>
+                <input type="text" class="form-control" id="kind">
+            </div>
+
+            <br>
+
+            <p>
+                Mindestbetreuungspauschale gilt in disem Monat nicht aufgrund:
+            </p>
+            <div id="pauschaleNicht">
+                <label>
+                    <input type="radio" name="pauschale"> Urlaub (Mobile/r) Tagesmutter/-vater
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="pauschale"> Krankheit (Mobile/r) Tagesmutter/-vater
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="pauschale"> Betreuungsbeginn
+                </label>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-group">
+                <label for="stundenVertrag">Betreuungsstunden lt. Vertrag: </label>
+                <input type="number" class="form-control" id="stundenVertrag">
+            </div>
+            <label>
+                <input type="radio" name="vertrag"> pro Woche
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="vertrag"> pro Monat
+            </label>
+
+            <br>
+            <br>
+
+            <div class="form-group">
+                <label for="beitragKernzeit">Betreuungsbeitrag je Stunde für Kernzeit: </label>
+                €
+                <input type="number" class="form-control" id="beitragKernzeit">
+            </div>
+            <div class="form-group">
+                <label for="beitragRandzeit">Erhöhter Betreuungsbeitrag je Stunde für Randzeit: </label>
+                €
+                <input type="number" class="form-control" id="beitragRandzeit">
+            </div>
+            <div class="form-group">
+                <label for="zuschuss">Zuschuss NÖ Landesregierung zum Betreuungsbeitrag je Stunde: </label>
+                €
+                <input type="number" class="form-control" id="zuschuss">
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-group">
+                <label for="kernzeitBeitrag">Betreuungsbeitrag für
+                    <input type="number" class="form-control" id="stundenKernzeit"> Stunden Kernzeit</label>
+                €
+                <input type="number" class="form-control" id="kernzeitBeitrag">
+            </div>
+            <div class="form-group">
+                <label for="randzeitBeitrag">Betreuungsbeitrag für
+                    <input type="number" class="form-control" id="stundenRandzeit"> Stunden Randzeit</label>
+                €
+                <input type="number" class="form-control" id="randzeitBeitrag">
+            </div>
+            <div class="form-group">
+                <label for="kernzeitZuschuss">abzüglich Zuschuss für
+                    <input type="number" class="form-control" id="abzueglichKernzeit"> Stunden Kernzeit</label>
+                - €
+                <input type="number" class="form-control" id="kernzeitZuschuss">
+            </div>
+            <div class="form-group">
+                <label for="randzeitZuschuss">abzüglich Zuschuss für
+                    <input type="number" class="form-control" id="abzeuglichRandzeit"> Stunden Randzeit</label>
+                - €
+                <input type="number" class="form-control" id="randzeitZuschuss">
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-group">
+                <label for="beitragTagesPerson">Betreuungsbeitrag an (Mobile/r) Tagesmutter/-vater</label>
+                €
+                <input type="number" class="form-control" id="beitragTagesPerson">
+            </div>
+            <div class="form-group">
+                <label for="beitragTagesPerson">Betrag für Essen/Basteln/Fahrtspesen/Sonstiges</label>
+                €
+                <input type="number" class="form-control" id="beitragTagesPerson">
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-group">
+                <label for="beitragTagesPerson">
+                    <b>Gesamtbetrag an (Mobile/r) Tagesmutter/-vater</b>
+                </label>
+                €
+                <input type="number" class="form-control" id="beitragTagesPerson">
+            </div>
+
+            <br>
+
+            <p>
+                <b style="font-size: 20px;">Gesamtbetrag</b>
+            </p>
+            <label>
+                <input type="radio" name="gesamtbetrag"> bar bezahlen
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="gesamtbetrag"> wird mit Zahlschein/Erziehungsauftrag bezahlt
+            </label>
+
+            <br>
+            <br>
+
+            <div class="container">
+                <table id="betreeungsTabelle">
+                    <tr>
+                        <td rowspan="2">Datum Tag</td>
+                        <td colspan="4">Betreuung</td>
+                        <td colspan="3">Betreuungsstunden</td>
+                    </tr>
+                    <tr>
+                        <td>von Uhr</td>
+                        <td>bis Uhr</td>
+                        <td>von Uhr</td>
+                        <td>bis Uhr</td>
+                        <td>in Kernzeit</td>
+                        <td>in Randzeit</td>
+                        <th style="background-color:#ffcc00;">Gesamt</th>
+                        <td>Sonstiges*</td>
+                    </tr>
+                    <tr>
+                        <th>1.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>2.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>3.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>4.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>5.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>6.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>7.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>8.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>9.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>10.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>11.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>12.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>13.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>14.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>15.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>16.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>17.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>18.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>19.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>20.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>21.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>22.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>23.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>24.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>25.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>26.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>27.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>28.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>29.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>30.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>31.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <th colspan="2">Summe</th>
+                        <td></td>
+                        <td></td>
+                        <td style="background-color:#ffcc00;"></td>
+                        <td></td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+        </div>
+
+        <div id="rechnung">
+            <p>
+                <b style="font-size: 25px;">Rechnung</b>
+            </p>
+            <div class="line"></div>
+
+            <br>
+
+            <p>
+                <b style="font-size: 20px;">Absender</b>
+            </p>
+            <div class="form-group">
+                <label for="nameAbsender">Name Absender: </label>
+                <input type="text" class="form-control" id="nameAbsender">
+            </div>
+            <div class="form-group">
+                <label for="strasseAbsender">Strasse Absender:</label>
+                <input type="text" class="form-control" id="strasseAbsender">
+            </div>
+            <div class="form-group">
+                <label for="plzAbsender">PLZ Absender:</label>
+                <input type="text" class="form-control" id="plzAbsender">
+            </div>
+            <div class="form-group">
+                <label for="ortAbsender">Wohnort Absender:</label>
+                <input type="text" class="form-control" id="ortAbsender">
+            </div>
+
+            <br>
+
+            <p>
+                <b style="font-size: 20px;">Empfänger</b>
+            </p>
+            <div class="form-group">
+                <label for="nameEmpfänger">Name Empfänger: </label>
+                <input type="text" class="form-control" id="nameEmpfänger">
+            </div>
+            <div class="form-group">
+                <label for="strasseEmpfänger">Strasse Empfänger:</label>
+                <input type="text" class="form-control" id="strasseEmpfänger">
+            </div>
+            <div class="form-group">
+                <label for="plzEmpfänger">PLZ Empfänger:</label>
+                <input type="text" class="form-control" id="plzEmpfänger">
+            </div>
+            <div class="form-group">
+                <label for="ortEmpfänger">Wohnort Empfänger:</label>
+                <input type="text" class="form-control" id="ortEmpfänger">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="ort">Ort:</label>
+                <input type="text" class="form-control" id="ort">
+            </div>
+            <div class="form-group">
+                <label for="datum">Datum:</label>
+                <input id="datum" type="date">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="rechnungsNum">Rechnungs Nummer:</label>
+                <input type="number" class="form-control" id="rechnungsNum">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="monat">Betreuungszeitraum: </label>
+                <input type="month" class="form-control" id="monat">
+            </div>
+
+            <br>
+            <br>
+
+            <div class="content">
+                <table id="rechungTabelle">
+                    <tr style="background-color:#ffcc00;">
+                        <th></th>
+                        <th>Stunden/Einheit</th>
+                        <th>Satz pro Stunde/Einheit</th>
+                        <th>Betrag</th>
+                    </tr>
+                    <tr>
+                        <th>Name Kind</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Betreuungsbeitragszuschuss</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr style="background-color:#ffcc00;">
+                        <th>Zwischensumme</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Essen</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Bastelbeitrag</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Sonstige</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr style="background-color:#ffcc00;">
+                        <td></td>
+                        <td></td>
+                        <th>Summe Euro</th>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+            <br>
+
+            <div id="ueberweisung">
+                <label>
+                    <input type="radio" name="zahlung"> Ich bitte Sie, obige Rechnung auf mein
+                    <label for="konto">Konto:</label>
+                    <input type="text" class="form-control" id="konto"> sofort nach Erhalt der Rechnung zu überweisen, Besten Dank!
+                </label>
+            </div>
+            <br>
+            <div id="bar">
+                <label>
+                    <input type="radio" name="zahlung">Ich habe den oben stehenden Betrag in bar dankend erhalten.</label>
+            </div>
+        </div>
+
+        <div id="dokument3">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#bestaetigung").hide();
+            $("#rechnung").hide();
+            $("#dokument3").hide();
+
+            $("a").click(function () {
+                if ($(this).text() === "Rechnung") {
+                    $("#rechnung").show();
+                    $("#dokument3").hide();
+                    $("#bestaetigung").hide();
+                } else if ($(this).text() === "Stundenbestätigung") {
+                    $("#bestaetigung").show();
+                    $("#rechnung").hide();
+                    $("#dokument3").hide();
+                } else if ($(this).text() === "Dokument3") {
+                    $("#bestaetigung").hide();
+                    $("#rechnung").hide();
+                    $("#dokument3").show();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

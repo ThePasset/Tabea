@@ -60,35 +60,13 @@ html:not(span) {
     animation-duration: 0.4s;
 }
 */
+
 .menue {
     background-color: gray;
 }
 
-.nav-link {
-    color: white;
-
-}
-
 .col {
     background-color: lightgray;
-}
-
-.nav {
-    margin-left: 70px;
-}
-
-.nav-item {
-    margin-right: 80px;
-}
-
-.nav-item a:hover {
-    background-color: #ffcc00;
-    color: black;
-}
-
-.nav-item a:focus {
-    background-color: #ffcc00;
-    color: black;
 }
 
 .bold {
