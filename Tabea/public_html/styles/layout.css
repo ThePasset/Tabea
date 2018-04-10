@@ -21,8 +21,6 @@ body{
 }
 
 .button{
-    height: 38px;
-    width: 120px;
     background-color: #ffcc00;
     border-width: 0px;
 }
@@ -60,9 +58,13 @@ html:not(span) {
     animation-duration: 0.4s;
 }
 */
-
 .menue {
     background-color: gray;
+}
+
+.nav-link {
+    color: white;
+
 }
 
 .col {
@@ -83,4 +85,18 @@ td, th {
     border: 3px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+.line {
+    background-color: lightgray;
+    width: 100%;
+    height: 2.5px;
+    margin-bottom: 20px;
+}
+
+#dropd {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    color: black;
+    margin-left: 2px;
 }

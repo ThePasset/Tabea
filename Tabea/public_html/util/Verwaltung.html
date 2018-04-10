@@ -6,141 +6,127 @@ and open the template in the editor.
 -->
 <html>
 
-    <head>
-        <title>Verwaltung</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../styles\layout.css" />
-        <link rel="stylesheet" type="text/css" href="../styles\HomeStyle.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<head>
+    <title>Verwaltung</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles\layout.css" />
+    <link rel="stylesheet" type="text/css" href="../styles\HomeStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
-        <style>
-            .line {
-                background-color: lightgray;
-                width: 100%;
-                height: 2.5px;
-                margin-bottom: 20px;
-            }
+    <style>
+    </style>
 
-            #dropd {
-                background-color: #ffcc00;
-                border-color: #ffcc00;
-                color: black;
-                margin-left:2px;
-            }
-        </style>
+    <script>
+        $(document).ready(function () {
+            $('#neuerK').hide();
 
-        <script>
-            $(document).ready(function () {
-                $('#neuerK').hide();
-
-                $('#bearbeiten').on("click", function () {
-                    $('#textKunde').text("Kunden bearbeiten:");
-                    $('#neuerK').show();
-                });
-
-                $('#neuerK').on("click", function () {
-                    $('#textKunde').text("Neuer Kunde:");
-                    $('#nname').text("");
-                    $('#vname').text("");
-                    $('#straße').text("");
-                    $('#plz').text("");
-                    $('#wohnort').text("");
-                    $('#kids').html("");
-                    $('#nnameKIND1').html("");
-                    $('#vnameKIND1').html("");
-                });
+            $('#bearbeiten').on("click", function () {
+                $('#textKunde').text("Kunden bearbeiten:");
+                $('#neuerK').show();
             });
-        </script>
 
-    </head>
+            $('#neuerK').on("click", function () {
+                $('#textKunde').text("Neuer Kunde:");
+                $('#nname').text("");
+                $('#vname').text("");
+                $('#straße').text("");
+                $('#plz').text("");
+                $('#wohnort').text("");
+                $('#kids').html("");
+                $('#nnameKIND1').html("");
+                $('#vnameKIND1').html("");
+            });
+        });
+    </script>
 
-    <body>
-        <div id="content">
-            <br>
-            <div class="dropdown">
-                <button id="dropd" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                    Kunden
-                </button>
-                <div class="dropdown-menu">
-                    <button id="kunde1" class="dropdown-item" onclick="">Max Mustermann</button>
-                </div>
-            </div>
-            <br>
-            <table id="Kunde_1" class="table">
-                <tr>
-                    <th>Kunden</th>
-                    <th>Nachname</th>
-                    <th>Vorname</th>
-                    <th>Straße</th>
-                    <th>PLZ</th>
-                    <th>Ort</th>
-                </tr>
-                <tr>
-                    <th class="bold">1. Kunde</th>
-                    <td id="Nachname">Mustermann</td>
-                    <td id="Vorname">Max</td>
-                    <td id="Strasse">Beispielstraße 1</td>
-                    <td id="PLZ">2420</td>
-                    <td id="Ort">Heaven</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <th class="bold">1. Kind</th>
-                    <td>Kevin</td>
-                    <td>Meier</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <th class="bold">2. Kind</th>
-                    <td>Lisa</td>
-                    <td>Meier</td>
-                </tr>
-            </table>
-            <div style="text-align: right;">
-                <button id="bearbeiten" class="button">Bearbeiten</button>
-            </div>
-            <br>
-            <div id="neuerK" style="text-align: right;">
-                <button id="neu" class="button">Neuer Kunde</button>
+</head>
+
+<body>
+    <div id="content">
+        <br>
+        <div class="dropdown">
+            <button id="dropd" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Kunden
+            </button>
+            <div class="dropdown-menu">
+                <button id="kunde1" class="dropdown-item" onclick="">Max Mustermann</button>
             </div>
         </div>
-
         <br>
-        <br>
-
-        <div id="neuerKunde" class="container">
-            <p id="kunde">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <b id="textKunde" style="font-size: 25px;">Neuer Kunde</b>
-            </p>
-            <div class="line"></div>
-            <form id="benutzereinstellungen">
-                <div class="form-group">
-                    <label for="nname">Nachname:</label>
-                    <input type="text" class="form-control" id="nname">
-                </div>
-                <div class="form-group">
-                    <label for="vname">Vorname:</label>
-                    <input type="text" class="form-control" id="vname">
-                </div>
-                <div class="form-group">
-                    <label for="straße">Straße:</label>
-                    <input type="text" class="form-control" id="straße">
-                </div>
-                <div class="form-group">
-                    <label for="plz">PLZ:</label>
-                    <input type="text" class="form-control" id="plz">
-                </div>
-                <div class="form-group">
-                    <label for="wohnort">Wohnort:</label>
-                    <input type="text" class="form-control" id="wohnort">
-                </div>
-            </form>
+        <table id="Kunde_1" class="table">
+            <tr>
+                <th>Kunden</th>
+                <th>Nachname</th>
+                <th>Vorname</th>
+                <th>Straße</th>
+                <th>PLZ</th>
+                <th>Ort</th>
+            </tr>
+            <tr>
+                <th class="bold">1. Kunde</th>
+                <td id="Nachname">Mustermann</td>
+                <td id="Vorname">Max</td>
+                <td id="Strasse">Beispielstraße 1</td>
+                <td id="PLZ">2420</td>
+                <td id="Ort">Heaven</td>
+            </tr>
+            <tr>
+                <td></td>
+                <th class="bold">1. Kind</th>
+                <td>Kevin</td>
+                <td>Meier</td>
+            </tr>
+            <tr>
+                <td></td>
+                <th class="bold">2. Kind</th>
+                <td>Lisa</td>
+                <td>Meier</td>
+            </tr>
+        </table>
+        <div style="text-align: right;">
+            <button id="bearbeiten" class="button">Bearbeiten</button>
         </div>
+        <br>
+        <div id="neuerK" style="text-align: right;">
+            <button id="neu" class="button">Neuer Kunde</button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="neuerKunde" class="container">
+        <p id="kunde">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <b id="textKunde" style="font-size: 25px;">Neuer Kunde</b>
+        </p>
+        <div class="line"></div>
+        <form id="benutzereinstellungen">
+            <div class="form-group">
+                <label for="nname">Nachname:</label>
+                <input type="text" class="form-control" id="nname">
+            </div>
+            <div class="form-group">
+                <label for="vname">Vorname:</label>
+                <input type="text" class="form-control" id="vname">
+            </div>
+            <div class="form-group">
+                <label for="straße">Straße:</label>
+                <input type="text" class="form-control" id="straße">
+            </div>
+            <div class="form-group">
+                <label for="plz">PLZ:</label>
+                <input type="text" class="form-control" id="plz">
+            </div>
+            <div class="form-group">
+                <label for="wohnort">Wohnort:</label>
+                <input type="text" class="form-control" id="wohnort">
+            </div>
+        </form>
         <div id="kinder">
             <label>
                 <b>Kinder:</b>
@@ -164,10 +150,12 @@ and open the template in the editor.
                 </span>
             </label>
         </div>
-        <br>
-        <div style="text-align: right;">
-            <button style="width:200px; height:50px;" class="button">Kunden hinzufügen/ändern</button>
-        </div>
-    </body>
+    </div>
+
+    <br>
+    <div style="text-align: right;">
+        <button style="width:200px; height:50px;" class="button">Kunden hinzufügen/ändern</button>
+    </div>
+</body>
 
 </html>
